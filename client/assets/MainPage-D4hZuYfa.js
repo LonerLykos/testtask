@@ -1,1 +1,0 @@
-import{j as s,c as e}from"./index-C6yf6C18.js";const a=()=>s.jsxs("div",{className:e("main-page-info-wrapper"),children:[s.jsxs("h1",{children:["Welcome ",s.jsx("span",{})]}),s.jsx("h2",{children:"Nice to see you again"}),s.jsx("h3",{children:"Now you can start work"})]}),r=()=>s.jsx("div",{children:s.jsx(a,{})});export{r as default};
