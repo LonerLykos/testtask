@@ -1,0 +1,93 @@
+[
+  {
+    "model": "users.rankmodel",
+    "fields": {
+      "rank_name": "3K",
+      "image": "ranks/3K.svg"
+    }
+  },
+  {
+    "model": "users.rankmodel",
+    "fields": {
+      "rank_name": "15K",
+      "image": "ranks/15K.svg"
+    }
+  },
+  {
+    "model": "users.rankmodel",
+    "fields": {
+      "rank_name": "45K",
+      "image": "ranks/45K.svg"
+    }
+  },
+  {
+    "model": "users.rankmodel",
+    "fields": {
+      "rank_name": "100K",
+      "image": "ranks/100K.svg"
+    }
+  },
+  {
+    "model": "users.rankmodel",
+    "fields": {
+      "rank_name": "200K",
+      "image": "ranks/200K.svg"
+    }
+  },
+  {
+    "model": "users.rankmodel",
+    "fields": {
+      "rank_name": "350K",
+      "image": "ranks/350K.svg"
+    }
+  },
+  {
+    "model": "users.rankmodel",
+    "fields": {
+      "rank_name": "550K",
+      "image": "ranks/550K.svg"
+    }
+  },
+  {
+    "model": "users.rankmodel",
+    "fields": {
+      "rank_name": "1M",
+      "image": "ranks/1M.svg"
+    }
+  },
+  {
+    "model": "users.rankmodel",
+    "fields": {
+      "rank_name": "1_8M",
+      "image": "ranks/1_8M.svg"
+    }
+  },
+  {
+    "model": "users.rankmodel",
+    "fields": {
+      "rank_name": "3M",
+      "image": "ranks/3M.svg"
+    }
+  },
+  {
+    "model": "users.rankmodel",
+    "fields": {
+      "rank_name": "4_5M",
+      "image": "ranks/4_5M.svg"
+    }
+  },
+  {
+    "model": "users.rankmodel",
+    "fields": {
+      "rank_name": "6_8M",
+      "image": "ranks/6_8M.svg"
+    }
+  },
+  {
+    "model": "users.rankmodel",
+    "fields": {
+      "rank_name": "10M",
+      "image": "ranks/10M.svg"
+    }
+  }
+]
