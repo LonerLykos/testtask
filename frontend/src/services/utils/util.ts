@@ -7,7 +7,7 @@ export function buildRegisterForm(data: RegisterData): FormData {
   formData.append("password", data.password);
   formData.append("user.name", data.user.name);
   formData.append("user.surname", data.user.surname);
-  formData.append("user.image", data.user.image); // Важливо: image має бути саме типу File
+  formData.append("user.avatar", data.user.image);
 
   return formData;
 }

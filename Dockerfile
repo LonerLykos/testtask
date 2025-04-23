@@ -26,6 +26,7 @@ ENV PATH=$POETRY_HOME/bin:$PATH
 COPY pyproject.toml /app/
 COPY backend/ /app/
 
+
 RUN poetry config virtualenvs.create false
 RUN poetry lock
 RUN poetry install

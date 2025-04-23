@@ -5,7 +5,8 @@ import {AppRoutes} from "./constants.ts";
 const Main = lazy(() => import ('../pages/main/MainPage.tsx'));
 const Register = lazy(() => import ('../pages/register/RegisterPage.tsx'));
 const Login = lazy(() => import ('../pages/login/LoginPage.tsx'));
-
+const Certificate = lazy(()=> import('../pages/certificate/CertificatePage.tsx'));
+const Users = lazy(()=> import ('../pages/users/UsersPage.tsx'))
 
 export const RoutesComponent = () => useRoutes([
     {
@@ -39,6 +40,14 @@ export const RoutesComponent = () => useRoutes([
                 <Certificate/>
             </Suspense>
         ),
-        path: AppRoutes.user.certificate,
-    }
+        path: AppRoutes.users.update(),
+    },
+    {
+        element: (
+            <Suspense>
+                <Users/>
+            </Suspense>
+        ),
+        path: AppRoutes.users.all,
+    },
 ]);

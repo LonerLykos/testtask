@@ -1,49 +1,61 @@
 import registerSchema from "../validator/register.validator.ts";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {useForm} from "react-hook-form";
-import {RegisterData} from "../../services/api.service.ts";
 import {useState} from "react";
-import {registerUser} from "../../services/auth.service.ts";
+import {registerUser} from "../../services/profile.service.ts";
+import {useNavigate} from "react-router-dom";
 
-
+interface RegInput {
+    email: string,
+    password: string,
+    user: {
+        name: string,
+        surname: string,
+        image: FileList,
+    };
+}
 
 export const RegisterForm = () => {
 
-    const [status, setStatus] = useState<number>(0)
+    const [stat, setStat] = useState<number>(0)
+    const navigate = useNavigate()
 
     const {handleSubmit, register, formState: {errors, isValid}, reset} =
-        useForm<RegisterData>({
+        useForm<RegInput>({
             mode: 'all',
             resolver: zodResolver(registerSchema),
         });
 
-    const myHandler = async (data: RegisterData) => {
+    const myHandler = async (data: RegInput) => {
         const {email, password, user} = data
         const {name, surname, image} = user
+        const file = image[0]
         const regData = {
             email: email,
             password: password,
             user: {
                 name: name,
                 surname: surname,
-                image: image
+                image: file
             }
         }
         try {
-            const axiosResponse = await registerUser(regData)
-            if (axiosResponse.status === 201) {
-                setStatus(2)
+            const status = await registerUser(regData)
+
+            if (status === 201) {
+                navigate('/')
             }
             reset()
         } catch (e) {
             console.log(e)
-            setStatus(1)
+            setStat(1)
+            reset()
         }
     }
 
     return (
         <div>
-            {status !== 2 ?
+            {stat !== 2 &&
                 <>
                 <h1>Sing up</h1>
                 <form onSubmit={handleSubmit(myHandler)}>
@@ -85,9 +97,6 @@ export const RegisterForm = () => {
 
                     <button disabled={!isValid}>Register</button>
                 </form>
-            </> :
-                <>
-                    <h1>Check your email to continue</h1>
                 </>
             }
         </div>

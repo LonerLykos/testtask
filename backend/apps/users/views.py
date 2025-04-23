@@ -12,6 +12,7 @@ from rest_framework.response import Response
 from apps.users.filter import ProfileFilter
 from apps.users.models import RankModel
 from apps.users.serializers import ChangeRankSerializer, ProfileSerializer
+from core.pagination import PagePagination
 from django_filters.rest_framework import DjangoFilterBackend
 
 ProfileModel = get_user_model()
@@ -29,6 +30,7 @@ class ProfileListView(ListAPIView):
     permission_classes = [IsAdminUser]
     filter_backends = [DjangoFilterBackend]
     filter_class = ProfileFilter
+    pagination_class = PagePagination
 
 
 class ChangeRankView(GenericAPIView):
@@ -101,3 +103,8 @@ class ProfileToAdminView(GenericAPIView):
 
         serializer = ProfileSerializer(profile)
         return Response(serializer.data, status.HTTP_200_OK)
+
+class RetrieveProfileView(GenericAPIView):
+    serializer_class = ChangeRankSerializer
+    queryset = ProfileModel.objects.all()
+    permission_classes = [IsAdminUser]

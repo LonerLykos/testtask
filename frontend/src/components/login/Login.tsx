@@ -3,12 +3,13 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {LoginData} from "../../services/api.service.ts";
 import loginSchema from "../validator/login.validator.ts";
 import {authService} from "../../services/auth.service.ts";
-// import {useNavigate} from "react-router-dom";
+import {ITokenPair} from "../../models/token-model/ITokenModel.ts";
+import {useNavigate} from "react-router-dom";
 
 
 export const Login = () => {
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const {handleSubmit, register, formState: {errors, isValid}, reset} =
         useForm<LoginData>({
@@ -18,11 +19,10 @@ export const Login = () => {
 
     const myHandler = async (data: LoginData) => {
         try {
-            const token = await authService.login(data)
-            console.log(token);
-            // if (token) {
-            //     navigate('/pizzas');
-            // }
+            const token:ITokenPair = await authService.login(data)
+            if (token) {
+                navigate('/users');
+            }
 
             reset();
 
