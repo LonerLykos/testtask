@@ -6,7 +6,6 @@ from apps.users.views import (
     ProfileCreateView,
     ProfileListView,
     ProfileToAdminView,
-    RetrieveProfileView,
 )
 
 urlpatterns = [
@@ -15,5 +14,4 @@ urlpatterns = [
     path('/<int:pk>/rank', ChangeRankView.as_view(), name='users_change_rank'),
     path('/<int:pk>/certificate', GetProfileCertificateView.as_view(), name='users_get_profile_for_certificate'),
     path('/<int:pk>/to_admin', ProfileToAdminView.as_view(), name='users_profile_to_admin'),
-    path('/<int:pk>/get_one', RetrieveProfileView.as_view(), name='users_get_one_profile'),
 ]

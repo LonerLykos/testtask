@@ -12,8 +12,16 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     DEBIAN_FRONTEND=noninteractive \
     COLUMNS=80
 
-RUN apk update
-RUN apk add --no-cache gcc musl-dev mariadb-dev curl
+RUN apk update && apk add --no-cache \
+    gcc \
+    musl-dev \
+    mariadb-dev \
+    cairo-dev \
+    pango-dev \
+    gdk-pixbuf-dev \
+    libffi-dev \
+    shared-mime-info \
+    curl
 
 RUN mkdir /app
 WORKDIR /app

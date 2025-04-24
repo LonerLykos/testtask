@@ -1,9 +1,10 @@
 import {useEffect, useState} from "react";
 import {ProfileService} from "../../../services/profile.service.ts";
+import {IProfile} from "../../../models/profile/IProfile.ts";
 
 export const UsersList = () => {
 
-    const [profile, setProfile] = useState()
+    const [profile, setProfile] = useState<IProfile[]>()
 
     useEffect(() => {
         const fetch = async ()  => {
@@ -14,10 +15,10 @@ export const UsersList = () => {
         fetch()
     }, []);
 
-
+    console.log(profile)
     return (
         <div>
-            {profile.map}
+
         </div>
     );
 };
