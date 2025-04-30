@@ -8,6 +8,9 @@ export const urls = {
         all: '/users',
         create() {
             return `${this.all}/create`
+        },
+        certificate(pk:string){
+            return `${this.all}/${pk}/certificate`
         }
     }
 

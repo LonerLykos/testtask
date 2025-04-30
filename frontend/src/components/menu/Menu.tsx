@@ -24,6 +24,7 @@ export const Menu = () => {
                     <li className={classNames('pages', {'active': isActive('/register')})}><Link to={'/register'}>Register</Link></li>
                     <li className={classNames('pages', {'active': isActive('/auth/login')})}><Link to={'/auth/login'}>Login</Link></li>
                     <li className={classNames('pages', {'active': isActive('/users')})}><Link to={'/users'}>Users</Link></li>
+                    <li className={classNames('pages', {'active': isActive('/users/3')})}><Link to={'/users/3'}>Certificate</Link></li>
                 </ul>
             </>
         </div>

@@ -16,7 +16,7 @@ from apps.users.serializers import ChangeRankSerializer, ProfileSerializer
 from cairosvg import svg2png
 from core.pagination import PagePagination
 from django_filters.rest_framework import DjangoFilterBackend
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 ProfileModel = get_user_model()
 
@@ -163,12 +163,12 @@ class GetProfileCertificateView(GenericAPIView):
             rank_bbox = draw.textbbox((0, 0), rank_text, font=font)
             rank_text_width = rank_bbox[2] - rank_bbox[0]
             rank_pos = ((rank_pos[0] + (RANK_SIZE[0] - rank_text_width) // 2), rank_pos[1] + RANK_SIZE[1] + 14)
-            draw.text(rank_pos, rank_text, fill='#FFF', font=font)
+            draw.text(rank_pos, rank_text, fill='#FFDF65', font=font)
 
             buffer = io.BytesIO()
             certificate.save(buffer, format='PNG')
             buffer.seek(0)
 
-            return FileResponse(buffer, as_attachment=True, filename=f'certificate_{pk}.png')
+            return FileResponse(buffer, as_attachment=True, filename=f'certificate_{pk}.png', content_type='image/png')
         except Exception as e:
             return Response({'error': str(e)}, status.HTTP_500_INTERNAL_SERVER_ERROR)
